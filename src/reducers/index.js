@@ -1,3 +1,4 @@
+//import action types to prevent misspelling
 import { REMOVE_FEATURE, BUY_ITEM } from "../actions";
 
 //initial setup of state to be used by the redux store
@@ -18,14 +19,28 @@ const initialState = {
   ]
 };
 
+//exporting reducer function with the initial state object as a parameter, takes an action
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case BUY_ITEM:
+      //in the case of BUY_ITEM, return spread of state, change the key of car to the spread of key of car, change the key of features to the spread of features, with the addition of the action's payload
       return {
         ...state,
         car: {
           ...state.car,
           features: [...state.car.features, action.payload]
+        }
+      };
+    case REMOVE_FEATURE:
+      return {
+        ...state,
+        car: {
+          ...state.car,
+          features: state.car.features.filter(cv => {
+            if (cv.id != action.payload.id) {
+              return cv;
+            }
+          })
         }
       };
     default:
