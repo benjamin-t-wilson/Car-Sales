@@ -5,6 +5,8 @@ import AddedFeatures from "./components/AddedFeatures";
 import AdditionalFeatures from "./components/AdditionalFeatures";
 import Total from "./components/Total";
 
+import { removeFeature, buyItem } from "./actions"; //imports action creators
+
 //import connect from react-redux as it will affect both. This allows React to access information from Redux
 import { connect } from "react-redux";
 
@@ -60,8 +62,8 @@ const mapStateToProps = state => {
   };
 };
 
-//Exports the result of the connect function, using mapStateToProps as a callback, and App as the component
+//Exports the result of the connect function, using mapStateToProps as a callback, action creators as additional info, and App as the component
 export default connect(
   mapStateToProps,
-  {}
+  { removeFeature, buyItem }
 )(App);
