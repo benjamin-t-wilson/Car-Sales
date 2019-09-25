@@ -13,7 +13,6 @@ export const removeFeature = feature => {
 };
 
 export const buyItem = item => {
-  console.log(item);
   return {
     type: BUY_ITEM,
     payload: item

@@ -32,10 +32,12 @@ const App = props => {
 
   const removeFeature = item => {
     // dispatch an action here to remove an item
+    props.removeFeature(item);
   };
 
   const buyItem = item => {
     // dipsatch an action here to add an item
+    props.buyItem(item);
   };
 
   //In return, change state values to prop values
@@ -46,7 +48,7 @@ const App = props => {
         <AddedFeatures car={props.car} />
       </div>
       <div className="box">
-        <AdditionalFeatures store={props.store} />
+        <AdditionalFeatures store={props.store}  buyItem={buyItem} />
         <Total car={props.car} additionalPrice={props.additionalPrice} />
       </div>
     </div>
