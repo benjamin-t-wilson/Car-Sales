@@ -26,6 +26,7 @@ export const reducer = (state = initialState, action) => {
       //in the case of BUY_ITEM, return spread of state, change the key of car to the spread of key of car, change the key of features to the spread of features, with the addition of the action's payload
       return {
         ...state,
+        additionalPrice: (state.additionalPrice += action.payload.price),
         car: {
           ...state.car,
           features: [...state.car.features, action.payload]
@@ -34,6 +35,7 @@ export const reducer = (state = initialState, action) => {
     case REMOVE_FEATURE:
       return {
         ...state,
+        additionalPrice: (state.additionalPrice += action.payload.price),
         car: {
           ...state.car,
           features: state.car.features.filter(cv => {
