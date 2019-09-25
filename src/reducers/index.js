@@ -23,7 +23,7 @@ const initialState = {
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case BUY_ITEM:
-      //in the case of BUY_ITEM, return spread of state, change the key of car to the spread of key of car, change the key of features to the spread of features, with the addition of the action's payload
+      //in the case of BUY_ITEM, return spread of state, change the key of car to the spread of key of car, change the key of features to the spread of features, with the addition of the action's payload. Also updates additional price.
       return {
         ...state,
         additionalPrice: (state.additionalPrice += action.payload.price),
